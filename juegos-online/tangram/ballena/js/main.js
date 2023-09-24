@@ -1,14 +1,23 @@
-import { initTangram } from "../../js/main_web.js";
+import { initTangram, compatCoordinates } from "../../js/main_web.js";
+
+var tamWidh = [320,160,160,160,110,160,240];
+var tamHeight = [160,320,160,110,160,160,96];
+
+var angle = [45,315,0,180,0,45,45];
+var mirror = [1,1,1,1,1,1,1];
+
+var origX = [310,129,425,195,490,357,230];
+var origY = [311,49,332,73,252,-74,463];
 
 initTangram({
-	width: 6.5,
-	height: 4.5,
-	widthPiezas: [3.2,1.6,1.6,1.6,1.1,1.6,2.4],
-	heightPiezas: [1.6,3.2,1.6,1.1,1.6,1.6,1],
+	padding: 50,
+	widthPiezas: tamWidh,
+	heightPiezas: tamHeight,
 
-	angle: [45,315,0,180,0,45,45],
-	mirror: [1,1,1,1,1,1,1],
-
-	origX: [1.24,.9,3.75,2.94,4.40,4.55,-.05],
-	origY: [2.64,0.7,2.4,2.25,1.6,-.3,2.95],
+	...compatCoordinates({
+		angle,
+		mirror,
+		origX,
+		origY,
+	})
 })

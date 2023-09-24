@@ -7,7 +7,8 @@ var complet = "¡Felicitaciones! La figura está completa.";
 
 /** @type {SVGElement} */
 var entorno = document.getElementById('entorno');
-var fondo = document.getElementById('fondo');
+/** @type {SVGImageElement} */
+var fondo = document.getElementById('fondo').firstChild;
 var piezas = document.getElementsByClassName('movil');
 var cajas = document.getElementsByClassName('padre');
 
@@ -65,8 +66,8 @@ export function initTangram(opts) {
 		/** @type {Pieza} */
 		const pieza = {
 			el,
-			x: Math.floor(Math.random() * (opts.width+2))-1,
-			y: Math.floor(Math.random() * (opts.height+2))-1,
+			x: Math.floor(Math.random() * (opts.width))- opts.padding * 2,
+			y: Math.floor(Math.random() * (opts.height))- opts.padding * 2,
 			w: opts.widthPiezas[i],
 			h: opts.heightPiezas[i],
 			angle: opts.angle[i],
@@ -74,10 +75,7 @@ export function initTangram(opts) {
 			origX: opts.origX[i],
 			origY: opts.origY[i],
 		}
-		pieza.x = pieza.origX
-		pieza.y = pieza.origY
-		datos.push(pieza)/*
-		*/
+		datos.push(pieza)
 
 		const origin = `${pieza.x}px ${pieza.y}px`
 		const transform = `rotate(${pieza.angle}deg) scaleX(${pieza.mirror})`
@@ -102,49 +100,6 @@ export function initTangram(opts) {
 		})
 	}
 }
-
-/**
- * @typedef TransformArgs
- * @prop {[number, number]} offset
- * @prop {[number, number]} viewBox
- * @prop {number[]} width
- * @prop {number[]} height
- * @prop {number[]} origX
- * @prop {number[]} origY
- * @prop {number[]} angle
- * @prop {number[]} mirror
- */
-
-/**
- * @param {TransformArgs} args
- */
-export function transformCoords({offset: [offsetX, offsetY], origX, origY, angle, mirror, viewBox: [viewBoxWidth, viewBoxHeight]}) {
-	const middleX = viewBoxWidth / 2
-	const middleY = viewBoxHeight / 2
-	const rads = angle.map(n =>  n * Math.PI / 180);
-	const newX = [], newY = []
-
-	for (let i = 0; i < 7; i ++) {
-		let viewX = mirror[i] * (origX[i] - middleX) * Math.cos(rads[i]) - (origY[i] - middleY) * Math.sin(rads[i]) + middleX
-		let viewY = mirror[i] * (origX[i] - middleX) * Math.sin(rads[i]) + (origY[i] - middleY) * Math.cos(rads[i]) + middleY
-
-		//const viewX = (origX[i] / mirror[i] - Math.tan(rads[i]) * origY[i]) / (Math.cos(rads[i])+Math.sin(rads[i]) * Math.sin(rads[i]))
-		//const viewY = (origY[i] + viewX * Math.sin(rads[i])) / Math.cos(rads[i]);
-
-		const x = viewX - offsetX
-		const y = viewY - offsetY
-
-		newX.push(x)
-		newY.push(y)
-	}
-	return {
-		origX: newX,
-		origY: newY,
-		angle,
-		mirror,
-	}
-}
-
 
 var actual = -1
 var startX = 0, startY = 0
@@ -248,3 +203,51 @@ function testing() {
 	}
 }
 
+
+/**
+ * @typedef TransformArgs
+ * @prop {number[]} origX
+ * @prop {number[]} origY
+ * @prop {number[]} angle
+ * @prop {number[]} mirror
+ */
+
+/**
+ * @param {TransformArgs} args
+ */
+export function compatCoordinates({origX, origY, angle, mirror}) {
+	const middleX = 350
+	const middleY = parseInt(entorno.getAttribute("height")) / 2
+	const offsetX = parseInt(fondo.getAttribute("x"))
+	const offsetY = parseInt(fondo.getAttribute("y"))
+	const width = parseInt(fondo.getAttribute("width"))
+	const height = parseInt(fondo.getAttribute("height"))
+	fondo.removeAttribute("x")
+	fondo.removeAttribute("y")
+
+	entorno.removeAttribute("height")
+	const rads = angle.map(n =>  n * Math.PI / 180);
+	const newX = [], newY = []
+
+	for (let i = 0; i < 7; i ++) {
+		let viewX = mirror[i] * (origX[i] - middleX) * Math.cos(rads[i]) - (origY[i] - middleY) * Math.sin(rads[i]) + middleX
+		let viewY = mirror[i] * (origX[i] - middleX) * Math.sin(rads[i]) + (origY[i] - middleY) * Math.cos(rads[i]) + middleY
+
+		//const viewX = (origX[i] / mirror[i] - Math.tan(rads[i]) * origY[i]) / (Math.cos(rads[i])+Math.sin(rads[i]) * Math.sin(rads[i]))
+		//const viewY = (origY[i] + viewX * Math.sin(rads[i])) / Math.cos(rads[i]);
+
+		const x = viewX - offsetX
+		const y = viewY - offsetY
+
+		newX.push(x)
+		newY.push(y)
+	}
+	return {
+		width,
+		height,
+		origX: newX,
+		origY: newY,
+		angle,
+		mirror,
+	}
+}
