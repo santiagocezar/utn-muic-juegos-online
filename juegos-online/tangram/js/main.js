@@ -90,6 +90,7 @@ function startMoving(ev) {
     // angle = parseInt(currentPiece.getAttribute("data-angle") ?? "0")
     relX = 0
     relY = 0
+    ev.preventDefault()
 
     /*
     if (doubleClick) {
