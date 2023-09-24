@@ -11,10 +11,10 @@ var origY = [288,220,53,355,48,288,165];
 
 initTangram({
 	padding: 50,
-	widthPiezas: tamWidh,
-	heightPiezas: tamHeight,
 
 	...compatCoordinates({
+		widthPiezas: tamWidh,
+		heightPiezas: tamHeight,
 		angle,
 		mirror,
 		origX,

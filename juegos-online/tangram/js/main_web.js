@@ -46,6 +46,10 @@ const datos = []
 /**
  * @param {Tangram} opts
  */
+
+const canonWidth = [501, 250, 250, 251, 125, 252, 376]
+const canonHeight = [250, 501, 250, 125, 251, 252, 376]
+
 export function initTangram(opts) {
 	tangram = opts
 	fondo.setAttribute("width", opts.width)
@@ -66,8 +70,8 @@ export function initTangram(opts) {
 		/** @type {Pieza} */
 		const pieza = {
 			el,
-			x: Math.floor(Math.random() * (opts.width))- opts.padding * 2,
-			y: Math.floor(Math.random() * (opts.height))- opts.padding * 2,
+			x: Math.floor(Math.random() * (opts.width))+ opts.padding,
+			y: Math.floor(Math.random() * (opts.height))+ opts.padding,
 			w: opts.widthPiezas[i],
 			h: opts.heightPiezas[i],
 			angle: opts.angle[i],
@@ -75,10 +79,15 @@ export function initTangram(opts) {
 			origX: opts.origX[i],
 			origY: opts.origY[i],
 		}
+		//pieza.x = pieza.origX
+		//pieza.y = pieza.origY
 		datos.push(pieza)
 
-		const origin = `${pieza.x}px ${pieza.y}px`
-		const transform = `rotate(${pieza.angle}deg) scaleX(${pieza.mirror})`
+		const sx= opts.widthPiezas[i]/ canonWidth[i]
+		const sy= opts.heightPiezas[i]/canonHeight[i]
+
+		const origin = `50% 50%`
+		const transform = `translate(${pieza.x}px, ${pieza.y}px) rotate(${pieza.angle}deg) scaleX(${pieza.mirror*sx})`
 
 		el.style.WebkitTransformOrigin = origin;
 		el.style.msTransformOrigin = origin;
@@ -86,10 +95,9 @@ export function initTangram(opts) {
 		el.style.WebkitTransform = transform;
 		el.style.msTransform = transform;
 		el.style.transform = transform;
+		el.style.transformBox = "fill-box";
 		el.setAttribute("width", pieza.w);
 		el.setAttribute("height",pieza.h);
-		el.setAttribute("x", pieza.x);
-		el.setAttribute("y", pieza.y);
 		el.addEventListener("mousedown", ev => {
 			actual = i
 			seleccionarElemento(ev)
@@ -110,14 +118,12 @@ var tangram = null
 /**
  * @param {Pieza} pieza
  */
-function updatePos({x, y, el}) {
-	const origin = `${x}px ${y}px`
+function updatePos({x, y, angle, mirror, el}) {
+	const transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scaleX(${mirror})`
 
-	el.setAttribute("x",x);
-	el.setAttribute("y",y);
-	el.style.WebkitTransformOrigin = origin;
-	el.style.msTransformOrigin = origin;
-	el.style.transformOrigin = origin;
+	el.style.msTransform = transform;
+	el.style.transform = transform;
+	el.style.transformBox = "fill-box";
 }
 
 function seleccionarElemento(ev) {
@@ -208,6 +214,8 @@ function testing() {
  * @typedef TransformArgs
  * @prop {number[]} origX
  * @prop {number[]} origY
+ * @prop {number[]} widthPiezas
+ * @prop {number[]} heightPiezas
  * @prop {number[]} angle
  * @prop {number[]} mirror
  */
@@ -215,7 +223,7 @@ function testing() {
 /**
  * @param {TransformArgs} args
  */
-export function compatCoordinates({origX, origY, angle, mirror}) {
+export function compatCoordinates({origX, widthPiezas, heightPiezas, origY, angle, mirror}) {
 	const middleX = 350
 	const middleY = parseInt(entorno.getAttribute("height")) / 2
 	const offsetX = parseInt(fondo.getAttribute("x"))
@@ -230,8 +238,24 @@ export function compatCoordinates({origX, origY, angle, mirror}) {
 	const newX = [], newY = []
 
 	for (let i = 0; i < 7; i ++) {
-		let viewX = mirror[i] * (origX[i] - middleX) * Math.cos(rads[i]) - (origY[i] - middleY) * Math.sin(rads[i]) + middleX
-		let viewY = mirror[i] * (origX[i] - middleX) * Math.sin(rads[i]) + (origY[i] - middleY) * Math.cos(rads[i]) + middleY
+		const ang = rads[i]
+		const relX = origX[i] - middleX
+		const relY = origY[i] - middleY
+		const centerX = widthPiezas[i] / 2
+		const centerY = heightPiezas[i] / 2
+
+		let viewX =
+			relX * Math.cos(ang) * mirror[i]
+			- relY * Math.sin(ang)
+			+ centerX * Math.cos(ang) * mirror[i]
+			- centerY * Math.sin(ang)
+			+ middleX
+		let viewY = mirror[i] * relX * Math.sin(ang)
+			+ relY * Math.cos(ang)
+			+ centerX * Math.sin(ang) * mirror[i]
+			+ centerY * Math.cos(ang)
+			+ middleY
+
 
 		//const viewX = (origX[i] / mirror[i] - Math.tan(rads[i]) * origY[i]) / (Math.cos(rads[i])+Math.sin(rads[i]) * Math.sin(rads[i]))
 		//const viewY = (origY[i] + viewX * Math.sin(rads[i])) / Math.cos(rads[i]);
@@ -245,6 +269,8 @@ export function compatCoordinates({origX, origY, angle, mirror}) {
 	return {
 		width,
 		height,
+		widthPiezas,
+		heightPiezas,
 		origX: newX,
 		origY: newY,
 		angle,

@@ -16,6 +16,15 @@ h1 {
 h2 {
     color: #EC921C;
 }
+#tangram {
+    margin: 0 auto;
+    max-height: 500px;
+}
+
+#tangram path {
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+}
 
 #iconos{
     height:30px;
@@ -43,9 +52,13 @@ h2 {
 #base, #entorno, #tarjetas{
 }
 
-#renglon{
-	padding-top:10px;
-	padding-bottom:10px;
+.tarjetas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
 }
 
 .ficha{
@@ -89,6 +102,7 @@ h2 {
 }
 
 .bloquer {
+    display: none;
     position: absolute;
     top: 0px;
     left: 0px;
