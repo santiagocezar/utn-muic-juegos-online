@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+
+<head>
+	
+	<title>Binomio de Newton</title>
+	<link href="../../img/ConCiencia-sinletras.png" rel="shortcut icon">
+	<meta charset="utf-8">
+	<meta name="ConCiencia">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/main.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">	
+</head>
+
+
+<body>
+
+
+<h1>Binomio de Newton</h1>
+<h2> Reglas </h2>
+    
+<p> Con las piezas disponibles armá un cuadrado, arrástralas para moverlas.</p>   
+<p> Utilizando estas piezas se demuestra la fórmula del Binomio de Newton: (A+B)² = A² + 2 A B + B².</p>
+
+<div class="contenido" style="position: relative;">
+<div id="bloqueador" class="bloquer"> <div id="video" style="position: relative;">
+	<video id="win" class="video" src="videos/binomio_win.mp4"></video>
+</div> </div>
+<svg id="entorno" height="500">
+<g id="fondo"><image xlink:href="img/cuadrado.png" width="450" height="450" x="200" y="20"></g>
+<g class="padre" id="0"><image xlink:href="img/1.png" class="movil"></g>
+<g class="padre" id="1"><image xlink:href="img/2.png" class="movil"></g>
+<g class="padre" id="2"><image xlink:href="img/3.png" class="movil"></g>
+<g class="padre" id="3"><image xlink:href="img/4.png" class="movil"></g>
+</svg>
+<div id="base">
+	<div id="monitor"></div>
+	<div id="etiqueta" class="figure"><img src="../img/Etiqueta.png"> </div>
+</div>
+</div>
+
+<div id="espacio-boton">
+<a class="boton-personalizado" href="index.html">Volver a Jugar</a> </div>
+
+<h2> ¿Armaste el cuadrado con todas las piezas? </h2>
+<h2> ¿Identificaste cada término de la ecuación?</h2>
+
+<div align="right">
+<a href="https://www.websmultimedia.com/contador-de-visitas-gratis">
+<img style="border: 0px solid; display: inline;" alt="contador de visitas"
+src="https://www.websmultimedia.com/contador-de-visitas.php?id=302813"></a>
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+
+<script type='text/javascript'>
+	document.oncontextmenu = function(){return false}
+</script>
+</body>

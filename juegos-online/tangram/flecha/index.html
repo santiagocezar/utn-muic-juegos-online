@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+
+<head>
+	
+	<title>Tangram</title>
+	<link href="../../../img/ConCiencia-sinletras.png" rel="shortcut icon">
+	<meta charset="utf-8">
+	<meta name="ConCiencia">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="../css/main.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">	
+</head>
+
+
+<body>
+
+<h1>Tangram</h1>
+<h2> Reglas </h2>
+    
+<p> Hay que armar las figuras que están en las fichas con las 7 piezas disponibles. </p>   
+<p> Arrastra las piezas para moverlas. </p>
+
+<div class="contenido" style="position: relative;">
+<div id="bloqueador" class="bloquer"> </div>
+<svg id="entorno" height="500">
+<g id="fondo"><image xlink:href="../img/flecha.png" width="500" height="500" x="200" y="20"></g>
+<g class="padre" id="0"><image xlink:href="../img/1.png" class="movil"></g>
+<g class="padre" id="1"><image xlink:href="../img/2.png" class="movil"></g>
+<g class="padre" id="2"><image xlink:href="../img/3.png" class="movil"></g>
+<g class="padre" id="3"><image xlink:href="../img/4.png" class="movil"></g>
+<g class="padre" id="4"><image xlink:href="../img/5.png" class="movil"></g>
+<g class="padre" id="5"><image xlink:href="../img/6.png" class="movil"></g>
+<g class="padre" id="6"><image xlink:href="../img/7.png" class="movil"></g>
+</svg>
+<div id="base">
+	<div id="monitor"></div>
+	<div id="etiqueta" class="figure"><img src="../../img/Etiqueta.png"> </div>
+	</div>
+</div>
+
+<div id="espacio-boton">
+<a class="boton-personalizado" href="../index.html">Volver a Jugar</a> </div>
+
+<h2> ¿Sabías qué? </h2>
+
+<p align="justify"> El Tangram es un juego chino muy antiguo llamado “Chi Chiao Pan” que significa “juego de los siete elementos” o “tabla de la sabiduría”. Existen varias versiones sobre el origen de la palabra Tangram, una de ellas cuenta que la inventó un inglés uniendo el vocablo cantonés “tang” que significa chino con el vocablo latino “gram” que significa escrito o gráfico. Otra versión narra que el origen del juego se remonta a los años 618 a 907, época en la que reinó en China la dinastía Tang, de donde derivaría su nombre.
+Las primeras publicaciones chinas en las que aparece el juego datan del siglo XVIII, época para la cual el juego era ya muy conocido en varios países del mundo.
+</p>
+
+<!-- Contador de visitas -->
+<div align="right">
+<a href="http://www.websmultimedia.com/contador-de-visitas-gratis" 
+
+title="Contador De Visitas">
+<img style="border: 0px solid; display: inline;" alt="contador de visitas" 
+
+src="http://www.websmultimedia.com/contador-de-visitas.php?id=302231"></a>
+</div>
+<!-- Fin Contador de visitas -->
+
+<script type="text/javascript" src="js/main.js"></script>
+
+<script type='text/javascript'>
+	document.oncontextmenu = function(){return false}
+</script>
+
+</body>

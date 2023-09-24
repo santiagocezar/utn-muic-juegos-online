@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="es" xml:lang="es">
+
+<head>
+    <title>Torres de Hanoi</title>
+    <link href="../../img/ConCiencia-sinletras.png" rel="shortcut icon">
+    <meta charset="utf-8">
+    <meta name="ConCiencia">
+    <LINK href="estilosHanoi.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="hanoi.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet"> 
+
+</head>
+
+<body onload="iniciar()">
+
+    <h1>Torres de Hanói</h1>
+    <h2> Reglas </h2>
+    <p> Hay que mover todas las piezas de una torre a otra, de manera que queden ordenadas como estaban, teniendo en cuenta las siguientes reglas:
+<ol>
+  <li> Mover una sola pieza a la vez.</li>
+  <li> No colocar una pieza más grande por encima de una más pequeña. </li>
+</ol>
+</p>
+    <div class="contenido" style="position: relative;">
+	<div id="bloqueador" class="bloquer"> </div>
+	<div id="nube"></div>
+        <div id="torres">
+	<div id="t1" class="contenidoTorre" onclick="mover(0)">
+        </div>
+        <div id="t2" class="contenidoTorre" onclick="mover(1)">
+        </div>
+        <div id="t3" class="contenidoTorre" onclick="mover(2)">
+        </div>
+        </div>
+	<div id="base">
+		<div id="display">
+			<div id="movimientos"></div>
+			<div id="monitor"></div>
+		</div>
+		<div id="etiqueta" class="figure"><img src="../img/Etiqueta.png"> </div>
+	</div>
+    </div>
+
+<div id="espacio-boton">
+<a class="boton-personalizado" href="index.html">Volver a Jugar</a> </div>
+
+<h2> ¿Sabías qué? </h2>
+    <p align="justify"> Según una leyenda, en el momento de la creación del mundo los sacerdotes de un templo Brahma recibieron una plataforma de bronce sobre la que había tres agujas de diamante. En la primera había apilados sesenta y cuatro discos de oro, cada uno ligeramente menor que el que se hallaba debajo de él. A los sacerdotes se les encomendó la tarea de pasarlos de la primer a la tercer aguja, siguiendo las reglas mencionadas.
+ Se les dijo que cuando terminaran de mover todos los discos vendría el fin del mundo. Se requieren tal cantidad de movimientos que suponiendo que se hace un movimiento por segundo, la tarea de los monjes llevaría 500.000.000.000 años.
+Este juego hizo su aparición en Europa en el siglo XVII.
+</p>
+
+<div align="right">
+<a href="https://www.websmultimedia.com/contador-de-visitas-gratis">
+<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://www.websmultimedia.com/contador-de-visitas.php?id=294851"></a>
+</div>
+
+<script type='text/javascript'>
+	document.oncontextmenu = function(){return false}
+</script>
+</body>
+
+</html>

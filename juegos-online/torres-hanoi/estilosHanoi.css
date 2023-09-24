@@ -1,0 +1,138 @@
+﻿body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgba(138,244,117,.4);
+}
+
+h1 {
+    text-align: center;
+    color: #303036;
+    font-weight: bolder;
+    margin-top: 30px;
+}
+
+h2 {
+    color: #EC921C;
+}
+
+.bloquer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+}
+
+.contenido{
+    bottom: 10%;
+    width: 100%;
+    border-style: none;
+}
+
+#iconos{
+    height: 30px;
+    width: 100%;
+    margin: auto;
+    text-align: right;
+    align-items: center;
+}
+
+#nube, #base, #torres {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #4AF33E;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-shadow: 10px 5px rgba(98,107,96,.7);
+}
+
+#nube {
+    margin-top: 50px;
+    height: 60px;
+    border-style: none;
+    padding-top: 40px;
+}
+
+#t1,#t2,#t3 {
+    display: inline-block;
+    top: 30%;
+    width: 150px;
+    height: 150px;
+    border-style: none;
+    background-color: #FFFFFF;
+    border-radius: 10px / 10px;
+}
+
+#t3:hover, #t1:hover, #t2:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
+
+#monitor {
+    height: 50px;
+    color: red;
+    padding-top: 15px;
+    font-size: 1.2em;
+}
+
+#movimientos {
+    height: 25px;
+    color: red;
+    padding-top: 15px;
+    font-size: 1.2em;
+}
+
+.ficha {
+    border-width: 2px;
+    height: 20px;
+    background-color: #C93FE8;
+    border-radius: 20% / 20%;
+    border: 1px outset #3E463D;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
+
+.contenidoTorre {
+    padding-top: 1px;
+}
+
+.twitter img {
+  position: absolute;
+  width:35px;
+  top:20px;
+  right:20px;
+}
+
+.boton-personalizado {
+text-decoration:none;
+font-weight: 600;
+font-size: 15px;
+color:#ffffff;
+padding-top:10px;
+padding-bottom:10px;
+padding-left:25px;
+padding-right:25px;
+background-color:#6356f5;
+border-color: #a399f0;
+border-width: 3px;
+border-style: solid;
+border-radius: 10px;
+}
+
+.boton-personalizado:hover {
+background-color:#1b07f5;
+}
+
+#espacio-boton{
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+}

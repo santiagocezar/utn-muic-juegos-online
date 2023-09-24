@@ -1,0 +1,141 @@
+/*Hoja de estilos*/
+html body {
+    font-family: 'Quicksand', sans-serif;
+    background-size: cover;
+}
+
+h1 {
+	text-align: center;
+	color: #FF0000;
+	font-weight: bolder;
+	margin-top: 30px;
+}
+
+h2 {
+	text-align: center;
+	color: #4D4D4D;
+	font-weight: bolder;
+	margin-top: 30px;
+}
+
+#iconos{
+    height:30px;
+    width:100%;
+    margin:auto;
+    text-align:right;
+    align-items:center;
+}
+
+.contenido{
+    bottom: 10%;
+    width: 100%;
+    border-style: none;
+}
+
+#tarjetas{
+//	width: 95%;
+//	background-color: #4AF33E;
+	margin-left: auto;
+    margin-right: auto;
+	padding-left: 5rem;
+	padding-right: 5rem;
+//	box-shadow: 10px 5px rgba(98,107,96,.7);
+}
+
+#renglon{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.ficha{
+	display: inline-block;
+	width:25%;
+	min-width: 160px;
+	min-width: 200px;
+	height:180px;
+    top: 30%;
+	text-align: center;
+	text-decoration:none;
+	font-weight: 600;
+	font-size: 15px;
+	color:#4D4D4D;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:25px;
+	padding-right:25px;
+	background-color:#FFFFFF;
+	border-color: #000099;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 10px;
+}
+
+.ficha:hover {
+	background-color:#6356f5;
+}
+
+#entorno {
+	display: block;
+	margin: 0 auto;
+}
+
+#fondo {
+	opacity: 0.3;
+}
+
+#base{
+    text-align: center;
+}
+
+#monitor {
+    height: 50px;
+    color: red;
+    padding-top: 15px;
+    font-size: 1.2em;
+}
+
+.bloquer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+}
+
+.boton-personalizado {
+text-decoration:none;
+font-weight: 600;
+font-size: 15px;
+color:#ffffff;
+padding-top:10px;
+padding-bottom:10px;
+padding-left:25px;
+padding-right:25px;
+background-color:#6356f5;
+border-color: #a399f0;
+border-width: 3px;
+border-style: solid;
+border-radius: 10px;
+}
+
+.boton-personalizado:hover {
+background-color:#1b07f5;
+}
+
+#espacio-boton{
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#flex-container {
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+}
