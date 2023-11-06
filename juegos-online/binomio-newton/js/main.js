@@ -1,14 +1,4 @@
-navegador = navigator.userAgent; 
-
-moviles = ["Mobile","iPhone","iPod","BlackBerry","Opera Mini","Sony","MOT","Nokia","samsung"];
-detector = 0; 
-
-for (i in moviles) { 
-	compruebo=navegador.indexOf(moviles[i]); 
-   	if (compruebo>-1) { 
-      		detector=1; //Si es un móvil, cambio el valor del detector
-      	}
-}
+import './piezas.js'
 
 var tamWidh = [303,145,145,315];
 var tamHeight = [303,145,315,145];

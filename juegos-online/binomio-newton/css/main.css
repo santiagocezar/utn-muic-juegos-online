@@ -1,7 +1,6 @@
 /*Hoja de estilos*/
 html body {
     font-family: 'Quicksand', sans-serif;
-    background-color: rgba(138,244,117,.4);
     background-size: cover;
 }
 
@@ -28,17 +27,17 @@ h2 {
     bottom: 10%;
     width: 100%;
     border-style: none;
+	background-color: #4AF33E;
+	box-shadow: 10px 5px rgba(98,107,96,.7);
 }
 
+#juego {
+	position: relative;
+}
 
 #base, #entorno{
-	width:700px;
-	background-color: #4AF33E;
 	margin-left: auto;
     	margin-right: auto;
-	padding-left: 50px;
-	padding-right: 50px;
-	box-shadow: 10px 5px rgba(98,107,96,.7);
 }
 
 #renglon{
@@ -74,6 +73,7 @@ h2 {
 #entorno {
 	display: block;
 	margin: 0 auto;
+	max-width: 400px;
 }
 
 #fondo {
@@ -92,6 +92,11 @@ h2 {
 }
 
 .bloquer {
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -100,22 +105,12 @@ h2 {
     z-index: 50;
 }
 
-#video{
-	width:700px;
-	height:500px;
-	margin-left: auto;
-    	margin-right: auto;
-	padding-left: 50px;
-	padding-right: 50px;
-}
-
 #win {
-	width:400px;
-	position: absolute;
-	top: 37px;
-    	left: 265px;
+	width: 95%;
+	max-width: 400px;
 	background-color: #FF8000;
 	border: 8px outset #FF8000;
+	box-sizing: border-box;
 }
 
 .boton-personalizado {

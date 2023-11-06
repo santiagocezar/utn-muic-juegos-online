@@ -9,6 +9,7 @@
 	<link href="../../img/ConCiencia-sinletras.png" rel="shortcut icon">
 	<meta charset="utf-8">
 	<meta name="ConCiencia">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<link rel="stylesheet" href="css/main.css">
@@ -26,21 +27,23 @@
 <p> Con las piezas disponibles armá un cuadrado, arrástralas para moverlas.</p>   
 <p> Utilizando estas piezas se demuestra la fórmula del Binomio de Newton: (A+B)² = A² + 2 A B + B².</p>
 
-<div class="contenido" style="position: relative;">
-<div id="bloqueador" class="bloquer"> <div id="video" style="position: relative;">
-	<video id="win" class="video" src="videos/binomio_win.mp4"></video>
-</div> </div>
-<svg id="entorno" height="500">
-<g id="fondo"><image xlink:href="img/cuadrado.png" width="450" height="450" x="200" y="20"></g>
-<g class="padre" id="0"><image xlink:href="img/1.png" class="movil"></g>
-<g class="padre" id="1"><image xlink:href="img/2.png" class="movil"></g>
-<g class="padre" id="2"><image xlink:href="img/3.png" class="movil"></g>
-<g class="padre" id="3"><image xlink:href="img/4.png" class="movil"></g>
-</svg>
-<div id="base">
-	<div id="monitor"></div>
-	<div id="etiqueta" class="figure"><img src="../img/Etiqueta.png"> </div>
-</div>
+<div class="contenido">
+	<div id="juego">
+		<div style="display:none;" id="bloqueador" class="bloquer">
+			<video id="win" class="video" src="videos/binomio_win.mp4"></video>
+		</div>
+		<svg id="entorno" viewBox="-5 -5 30 30">
+		<rect width="30" height="30" fill="#fff8" />
+		<rect class="move" width="10" height="10" stroke="#000" stroke-width=".2" fill="#8d5fd3" />
+		<rect class="move" width="10" height="20" stroke="#000" stroke-width=".2" fill="#ff6600" />
+		<rect class="move" width="20" height="10" stroke="#000" stroke-width=".2" fill="#ff6600" />
+		<rect class="move" width="20" height="20" stroke="#000" stroke-width=".2" fill="#ff0000" />
+		</svg>
+	</div>
+	<div id="base">
+		<div id="monitor"></div>
+		<div id="etiqueta" class="figure"><img src="../img/Etiqueta.png"> </div>
+	</div>
 </div>
 
 <div id="espacio-boton">
@@ -55,7 +58,7 @@
 src="https://www.websmultimedia.com/contador-de-visitas.php?id=302813"></a>
 </div>
 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 
 
 <script type='text/javascript'>
