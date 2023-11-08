@@ -150,8 +150,7 @@ class MUICPuzzle extends HTMLElement {
 		this.y = y
 
 		this.currentPiece.animate([{
-			transform: `translate(${x}px, ${y}px)`
-			// transform: `translate(${newX}px, ${newY}px) rotate(${newAngle}deg)`
+			transform: `translate(${x}px, ${y}px)`// scale(1.2)`
 		}], {
 			duration: 0,
 			fill: "forwards"
@@ -171,23 +170,60 @@ class MUICPuzzle extends HTMLElement {
 		const closestX = Math.round(x / this.piezaW) * this.piezaW
 		const closestY = Math.round(y / this.piezaH) * this.piezaH
 
-		if (Math.abs(x - closestX) < this.piezaW / 4 && Math.abs(y - closestY) < this.piezaH / 4) {
-			x = closestX
-			y = closestY
+		let snap = Math.abs(x - closestX) < this.piezaW / 4 && Math.abs(y - closestY) < this.piezaH / 4
+		let occupied = false
 
-			const parent = this.currentPiece.parentNode
-			parent.removeChild(this.currentPiece);
-			parent.insertBefore(this.currentPiece, parent.children[1]);
-		}
+		if (snap) {
+			for (const piece of this.svg.children) {
+				const x = piece.getAttribute("data-x")
+				const y = piece.getAttribute("data-y")
+				if (piece != this.currentPiece && x == closestX && y == closestY) {
+					console.log("nah bruh")
+					occupied = true
+					break
+				}
+			}
+			if (!occupied) {
+				x = closestX
+				y = closestY
 
-		this.currentPiece.animate([{
-			transform: `translate(${x}px, ${y}px)`
-			// transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`
-		}], {
-			duration: 200,
-			easing: "cubic-bezier(.01,.68,.23,1.2)",
-			fill: "forwards"
-		})
+				const parent = this.currentPiece.parentNode
+				parent.removeChild(this.currentPiece);
+				parent.insertBefore(this.currentPiece, parent.children[1]);
+
+				this.currentPiece.animate([{
+					transform: `translate(${x}px, ${y}px)`
+				}], {
+					duration: 200,
+					easing: "cubic-bezier(.01,.68,.23,1.2)",
+					fill: "forwards"
+				})
+			} else {
+
+
+				this.currentPiece.animate([{
+					transform: `translate(${x}px, ${y}px) rotate(6deg)`
+				},{
+					transform: `translate(${x}px, ${y}px) rotate(-6deg)`
+				},{
+					transform: `translate(${this.startX}px, ${this.startY}px) rotate(0deg)`
+				}], {
+					duration: 200,
+					easing: "cubic-bezier(.01,.68,.23,1.2)",
+					fill: "forwards"
+				})
+				x = this.startX;
+				y = this.startY;
+			}
+		}/* else {
+			this.currentPiece.animate([{
+				transform: `translate(${x}px, ${y}px)`
+			}], {
+				duration: 200,
+				easing: "cubic-bezier(.01,.68,.23,1.2)",
+				fill: "forwards"
+			})
+		} */
 
 		this.currentPiece.setAttribute("data-x", x.toString())
 		this.currentPiece.setAttribute("data-y", y.toString())
@@ -206,7 +242,6 @@ class MUICPuzzle extends HTMLElement {
 				yeah = false
 				break
 			}
-
 		}
 		if (yeah) {
 			/** @type {MUICCrono} */

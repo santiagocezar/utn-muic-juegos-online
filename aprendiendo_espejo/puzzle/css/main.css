@@ -65,6 +65,11 @@ muic-puzzle svg {
 	max-height: 500px;
 }
 
+muic-puzzle image {
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
 .bloquer {
     position: absolute;
 	inset: 0;
