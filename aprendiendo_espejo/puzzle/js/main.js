@@ -199,21 +199,29 @@ class MUICPuzzle extends HTMLElement {
 					fill: "forwards"
 				})
 			} else {
-
+				const dx = (this.startX - closestX)
+				const dy = (this.startY - closestY)
+				const len = Math.sqrt(dx * dx + dy * dy)
+				let nearbyX = this.startX;
+				let nearbyY = this.startY;
+				if (len != 0) {
+					nearbyX = closestX + dx / len * 80
+					nearbyY = closestY + dy / len * 80
+				}
 
 				this.currentPiece.animate([{
 					transform: `translate(${x}px, ${y}px) rotate(6deg)`
 				},{
 					transform: `translate(${x}px, ${y}px) rotate(-6deg)`
 				},{
-					transform: `translate(${this.startX}px, ${this.startY}px) rotate(0deg)`
+					transform: `translate(${nearbyX}px, ${nearbyY}px) rotate(0deg)`
 				}], {
 					duration: 200,
 					easing: "cubic-bezier(.01,.68,.23,1.2)",
 					fill: "forwards"
 				})
-				x = this.startX;
-				y = this.startY;
+				x = nearbyX;
+				y = nearbyY;
 			}
 		}/* else {
 			this.currentPiece.animate([{
