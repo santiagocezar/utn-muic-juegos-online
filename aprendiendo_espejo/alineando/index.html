@@ -1,99 +1,30 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8"/>
-		<link rel="manifest" href="manifest.webmanifest">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="theme-color" content="#000000"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				background-color: #000000;
-				overflow: hidden;
-			}
-			#canvasArea {
-				margin-left: auto;
-				margin-right: auto;
-				overflow: hidden;
-			}
-		</style>
-		<!-- Libs and GDJS core files : -->
-		<script src="libs/jshashtable.js" crossorigin="anonymous"></script>
-		<script src="logger.js" crossorigin="anonymous"></script>
-		<script src="gd.js" crossorigin="anonymous"></script>
-		<script src="libs/rbush.js" crossorigin="anonymous"></script>
-		<script src="AsyncTasksManager.js" crossorigin="anonymous"></script>
-		<script src="inputmanager.js" crossorigin="anonymous"></script>
-		<script src="jsonmanager.js" crossorigin="anonymous"></script>
-		<script src="timemanager.js" crossorigin="anonymous"></script>
-		<script src="polygon.js" crossorigin="anonymous"></script>
-		<script src="runtimeobject.js" crossorigin="anonymous"></script>
-		<script src="profiler.js" crossorigin="anonymous"></script>
-		<script src="runtimescene.js" crossorigin="anonymous"></script>
-		<script src="scenestack.js" crossorigin="anonymous"></script>
-		<script src="force.js" crossorigin="anonymous"></script>
-		<script src="layer.js" crossorigin="anonymous"></script>
-		<script src="timer.js" crossorigin="anonymous"></script>
-		<script src="runtimegame.js" crossorigin="anonymous"></script>
-		<script src="variable.js" crossorigin="anonymous"></script>
-		<script src="variablescontainer.js" crossorigin="anonymous"></script>
-		<script src="oncetriggers.js" crossorigin="anonymous"></script>
-		<script src="runtimebehavior.js" crossorigin="anonymous"></script>
-		<script src="spriteruntimeobject.js" crossorigin="anonymous"></script>
-		<script src="affinetransformation.js" crossorigin="anonymous"></script>
-		<script src="events-tools/commontools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/variabletools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/runtimescenetools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/inputtools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/objecttools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/cameratools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/soundtools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/storagetools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/stringtools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/windowtools.js" crossorigin="anonymous"></script>
-		<script src="events-tools/networktools.js" crossorigin="anonymous"></script>
-		<script src="splash/gd-logo-light.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/pixi.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/pixi-filters-tools.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/runtimegame-pixi-renderer.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/runtimescene-pixi-renderer.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/layer-pixi-renderer.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/pixi-image-manager.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/pixi-bitmapfont-manager.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/spriteruntimeobject-pixi-renderer.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/loadingscreen-pixi-renderer.js" crossorigin="anonymous"></script>
-		<script src="pixi-renderers/pixi-effects-manager.js" crossorigin="anonymous"></script>
-		<script src="howler-sound-manager/howler.min.js" crossorigin="anonymous"></script>
-		<script src="howler-sound-manager/howler-sound-manager.js" crossorigin="anonymous"></script>
-		<script src="fontfaceobserver-font-manager/fontfaceobserver.js" crossorigin="anonymous"></script>
-		<script src="fontfaceobserver-font-manager/fontfaceobserver-font-manager.js" crossorigin="anonymous"></script>
-		<script src="Extensions/DraggableBehavior/draggableruntimebehavior.js" crossorigin="anonymous"></script>
-		<script src="Extensions/TopDownMovementBehavior/topdownmovementruntimebehavior.js" crossorigin="anonymous"></script>
-		<script src="Extensions/TextObject/textruntimeobject.js" crossorigin="anonymous"></script>
-		<script src="Extensions/TextObject/textruntimeobject-pixi-renderer.js" crossorigin="anonymous"></script>
-		<script src="code0.js" crossorigin="anonymous"></script>
-		<script src="data.js" crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<script>
-			(function() {
-				//Initialization
-				var game = new gdjs.RuntimeGame(gdjs.projectData, {});
-
-				//Create a renderer
-				game.getRenderer().createStandardCanvas(document.body);
-
-				//Bind keyboards/mouse/touch events
-				game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
-
-				//Load all assets and start the game
-				game.loadAllAssets(function() {
-					game.startGameLoop();
-				});
-			})();
-		</script>
-	</body>
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Puzzles</title>
+        <link href="../img/ConCiencia-sinletras.png" rel="shortcut icon">
+        <meta charset="utf-8">
+        <meta name="ConCiencia">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../../juegos-online/css/botonVolver.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+			<a class="volver" href="../index.html">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+					<path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/>
+				</svg>
+			</a>
+			<h1>Alineando Espejos</h1>
+		</header>
+        <h2>Información</h2>
+        <p>Alinea los espejos del Telescopio Espacial James Webb (JWST) para captar imágenes con mayor nitidez.</p>
+        <div id="flex-container">
+            <iframe width="100%" height="600" src="juego.html" scrolling="yes" frameborder="no"></iframe>
+        </div>
+        <br>
+    </body>
 </html>

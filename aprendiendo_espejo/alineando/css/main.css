@@ -31,12 +31,12 @@ h2 {
 
 #tarjetas{
 	width:70%;
-//	background-color: #4AF33E;
+	background-color: #4AF33E;
 	margin-left: auto;
     	margin-right: auto;
 	padding-bottom: 10px;
 	padding-right: 50px;
-//	box-shadow: 10px 5px rgba(98,107,96,.7);
+	box-shadow: 10px 5px rgba(98,107,96,.7);
 }
 
 #renglon{
@@ -100,23 +100,23 @@ h2 {
 }
 
 .boton-personalizado {
-text-decoration:none;
-font-weight: 600;
-font-size: 15px;
-color:#ffffff;
-padding-top:10px;
-padding-bottom:10px;
-padding-left:25px;
-padding-right:25px;
-background-color:#6356f5;
-border-color: #a399f0;
-border-width: 3px;
-border-style: solid;
-border-radius: 10px;
+	text-decoration:none;
+	font-weight: 600;
+	font-size: 15px;
+	color:#ffffff;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:25px;
+	padding-right:25px;
+	background-color:#6356f5;
+	border-color: #a399f0;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 10px;
 }
 
 .boton-personalizado:hover {
-background-color:#1b07f5;
+	background-color:#1b07f5;
 }
 
 #boton, #botones{
