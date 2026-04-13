@@ -6,9 +6,9 @@ var nube, error = "No se puede realizar este movimiento";
 var nube, perfect = "¡Perfecto! Lo has resuelto en el número mínimo de movimientos.";
 var nube, completo = "¡Muy bien! ¿Te animás a hacerlo en menos movimientos?";
 var torres = new Array(3);
-var contmovimientos = 0;
-var cantidadtotalFichas = 0;
-var min_movimientos = 0;
+var contmovimientos;
+var cantidadtotalFichas;
+var min_movimientos;
 
 /* Objeto nube
     Funciones:
@@ -90,7 +90,7 @@ function ObjTorre(num) {
         this.fichas.unshift(ficha);
         this.verTorre();
     };
-    
+
     this.verTorre = function () {
         var espacio, textoCompleto;
         espacio = (7 * 20) - (this.fichas.length * 20);
@@ -102,35 +102,47 @@ function ObjTorre(num) {
     };
 }
 
-
 function iniciar() {
     "use strict";
-    var cantidadFichas = parseInt(prompt("Bienvenido al juego interactivo Torres de Hanói de 'ConCiencia - Museo Interactivo de Ciencias'. Este juego pondrá a prueba tu lógica, mientras más piezas más dificultad. Lo primero que debes hacer es ingresar el número de piezas a usar (pueden ser entre 3 y 7): ", "0"), 10),  f, ficha, stiloWidth = 160, datos;
+    /*var cantidadFichas = parseInt(prompt("Bienvenido al juego interactivo Torres de Hanói de 'ConCiencia - Museo Interactivo de Ciencias'. Este juego pondrá a prueba tu lógica, mientras más piezas más dificultad. Lo primero que debes hacer es ingresar el número de piezas a usar (pueden ser entre 3 y 7): ", "0"), 10),  f, ficha, stiloWidth = 112, datos;*/
     /* var cantidadFichas = parseInt(prompt("Ingrese el número de fichas a usar (pueden ser entre 3 y 7): ", "0"), 10),  f, ficha, stiloWidth = 160, datos; */
+    contmovimientos=0;
+    cantidadtotalFichas=0;
+    min_movimientos=0;
+    var ficha, datos=0, cantidadFichas=0;
+    var stiloWidth = 112;
+    var cantidadFichas = parseInt(document.getElementById("pieces-slider").value, 10);
+    document.getElementById("monitor").innerHTML = null;
+    
     //Declaracion de los objetos torre
     torres[0] = new ObjTorre(1);
     torres[1] = new ObjTorre(2);
     torres[2] = new ObjTorre(3);
     nube = new ObjNube();
-    //    var cantidadFichas = 6;
-    if (cantidadFichas >= 3 && cantidadFichas <= 7) {
+
+
+    /*if (cantidadFichas >= 3 && cantidadFichas <= 7) {
         cantidadtotalFichas = cantidadFichas;
     } else {
 	cantidadFichas = 5;
 	cantidadtotalFichas = cantidadFichas;
-	}
+	}*/
 
-
-      
-      min_movimientos = 2**cantidadFichas-1;
-    //Inicializa los objetos ficha y los asigna al array de la torre 1
-    for (f = cantidadFichas; f > 0; f--) {
+    	cantidadtotalFichas = cantidadFichas;
+	min_movimientos = 2**cantidadFichas-1;
+	document.getElementById("movimientos").innerHTML = "Movimientos mínimos: " + min_movimientos;
+    
+	//Inicializa los objetos ficha y los asigna al array de la torre 1
+    	for (var f = cantidadFichas; f > 0; f--) {
         ficha = new ObjFicha(f);
-        stiloWidth -= 20;
-        datos = "<div id='f" + f + "' class='ficha' style='width:" + stiloWidth + "px" + "'></div>";
+        stiloWidth -= 12;
+        datos = "<div id='f" + f + "' class='ficha' style='width:" + stiloWidth + "%" + "'></div>";
         ficha.datosFicha = datos;
         torres[0].ponerFicha(ficha);
-	document.getElementById("movimientos").innerHTML = "Movimientos mínimos: " + min_movimientos;
+	torres[1].verTorre();
+	torres[2].verTorre();
+
+	document.getElementById("nube").innerHTML = null;
  	document.getElementById("bloqueador").style.display = "none";
     }
 }

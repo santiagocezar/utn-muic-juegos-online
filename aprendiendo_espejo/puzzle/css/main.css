@@ -7,7 +7,7 @@ html body {
 header {
 	display: flex;
 	border-bottom: 3px solid #ddd;
-/* 	border-radius: 10px; */
+	/*border-radius: 10px;*/
 }
 .volver {
 	display: flex;
@@ -105,16 +105,12 @@ td,th{
 	padding: 0.2em .5em;
 	margin: 0;
 	text-align: left;
-	border: /*1px solid #B2B2B2*/;
+	/*border: 1px solid #B2B2B2;*/
 }
-tbody td {
-}
-
 th{
 	background-color: #F0FBF7;
 	border-bottom: 3px solid #BEE5D7;
 }
-
 muic-crono {
 	font-family: monospace;
 	padding: 5px;
@@ -125,8 +121,6 @@ muic-crono {
 	background-color: #6356f5;
 	border-radius: 10px;
 }
-
-
 .boton-personalizado {
 	display: block;
 	text-decoration:none;
@@ -155,13 +149,13 @@ background-color:#1b07f5;
 }
 
 #tarjetas{
-//	width: 95%;
-//	background-color: #4AF33E;
+	width: 95%;
+	background-color: #4AF33E;
 	margin-left: auto;
     margin-right: auto;
 	padding-left: 5rem;
 	padding-right: 5rem;
-//	box-shadow: 10px 5px rgba(98,107,96,.7);
+	box-shadow: 10px 5px rgba(98,107,96,.7);
 }
 
 #renglon{

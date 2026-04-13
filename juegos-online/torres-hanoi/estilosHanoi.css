@@ -22,7 +22,6 @@ h2 {
     width: 100%;
     z-index: 50;
 }
-
 .contenido{
     bottom: 10%;
     width: 100%;
@@ -37,28 +36,35 @@ h2 {
     align-items: center;
 }
 
-#nube, #base, #torres {
-    width: 500px;
+#bloquenube, #base, #torres {
+    width: 95%;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
     background-color: #4AF33E;
     text-align: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 2%;
+    padding-right: 2%;
     box-shadow: 10px 5px rgba(98,107,96,.7);
 }
 
-#nube {
+#bloquenube {
     margin-top: 50px;
     height: 60px;
     border-style: none;
     padding-top: 40px;
 }
 
+#nube{
+    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #t1,#t2,#t3 {
     display: inline-block;
     top: 30%;
-    width: 150px;
+    width: 30%;
     height: 150px;
     border-style: none;
     background-color: #FFFFFF;
@@ -135,4 +141,15 @@ background-color:#1b07f5;
     margin-right: auto;
     text-align: center;
 }
+
+input[type="range"] {
+  width: 200px;
+  height: 20px;
+  margin: 0;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
 }

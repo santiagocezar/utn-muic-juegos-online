@@ -1,67 +1,57 @@
 ﻿<!DOCTYPE html>
-
 <html lang="es">
-
-
-<head>
-	
-	<title>Binomio de Newton</title>
-	<link href="../../img/ConCiencia-sinletras.png" rel="shortcut icon">
-	<meta charset="utf-8">
-	<meta name="ConCiencia">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="css/main.css">
-
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">	
-</head>
-
-
-<body>
-
-
-<h1>Binomio de Newton</h1>
-<h2> Reglas </h2>
-    
-<p> Con las piezas disponibles armá un cuadrado, arrástralas para moverlas.</p>   
-<p> Utilizando estas piezas se demuestra la fórmula del Binomio de Newton: (A+B)² = A² + 2 A B + B².</p>
-
-<div class="contenido">
-	<div id="juego">
-		<div style="display:none;" id="bloqueador" class="bloquer">
-			<video id="win" class="video" src="videos/binomio_win.mp4"></video>
+	<head>
+		<title>Binomio de Newton</title>
+		<link href="../../img/ConCiencia-sinletras.png" rel="shortcut icon">
+		<meta charset="utf-8">
+		<meta name="ConCiencia">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="../css/botonVolver.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">	
+	</head>
+	<body>
+		<header>
+			<a class="volver" href="../juegos.html">
+			    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/></svg>
+            </a>
+			<h1>Binomio de Newton</h1>
+		</header>
+		<h2>Reglas</h2>
+		<p>Con las piezas disponibles armá un cuadrado, arrástralas para moverlas.</p>   
+		<p>Utilizando estas piezas se demuestra la fórmula del Binomio de Newton: (A+B)² = A² + 2 A B + B².</p>
+		<div class="contenido">
+			<div id="juego">
+				<div style="display:none;" id="bloqueador" class="bloquer">
+					<video id="win" class="video" src="videos/binomio_win.mp4"></video>
+				</div>
+				<svg id="entorno" viewBox="-5 -5 30 30">
+					<rect width="30" height="30" fill="#fff8"/>
+					<rect class="move" width="10" height="10" stroke="#000" stroke-width=".2" fill="#8d5fd3"/>
+					<rect class="move" width="10" height="20" stroke="#000" stroke-width=".2" fill="#ff6600"/>
+					<rect class="move" width="20" height="10" stroke="#000" stroke-width=".2" fill="#ff6600"/>
+					<rect class="move" width="20" height="20" stroke="#000" stroke-width=".2" fill="#ff0000"/>
+				</svg>
+			</div>
+			<div id="base">
+				<div id="monitor"></div>
+				<div id="etiqueta" class="figure"><img src="../img/Etiqueta.png"> </div>
+			</div>
 		</div>
-		<svg id="entorno" viewBox="-5 -5 30 30">
-		<rect width="30" height="30" fill="#fff8" />
-		<rect class="move" width="10" height="10" stroke="#000" stroke-width=".2" fill="#8d5fd3" />
-		<rect class="move" width="10" height="20" stroke="#000" stroke-width=".2" fill="#ff6600" />
-		<rect class="move" width="20" height="10" stroke="#000" stroke-width=".2" fill="#ff6600" />
-		<rect class="move" width="20" height="20" stroke="#000" stroke-width=".2" fill="#ff0000" />
-		</svg>
-	</div>
-	<div id="base">
-		<div id="monitor"></div>
-		<div id="etiqueta" class="figure"><img src="../img/Etiqueta.png"> </div>
-	</div>
-</div>
-
-<div id="espacio-boton">
-<a class="boton-personalizado" href="index.html">Volver a Jugar</a> </div>
-
-<h2> ¿Armaste el cuadrado con todas las piezas? </h2>
-<h2> ¿Identificaste cada término de la ecuación?</h2>
-
-<div align="right">
-<a href="https://www.websmultimedia.com/contador-de-visitas-gratis">
-<img style="border: 0px solid; display: inline;" alt="contador de visitas"
-src="https://www.websmultimedia.com/contador-de-visitas.php?id=302813"></a>
-</div>
-
-<script type="module" src="js/main.js"></script>
-
-
-<script type='text/javascript'>
-	document.oncontextmenu = function(){return false}
-</script>
-</body>
+		<h2> ¿Armaste el cuadrado con todas las piezas? </h2>
+		<h2> ¿Identificaste cada término de la ecuación?</h2>
+		<div align="right">
+			<a href="https://www.websmultimedia.com/contador-de-visitas-gratis">
+				<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://www.websmultimedia.com/contador-de-visitas.php?id=302813">
+			</a>
+		</div>
+		<script type="module" src="js/main.js"></script>
+		<script type='text/javascript'>
+			document.oncontextmenu = function(){
+				return false
+			}
+		</script>
+	</body>
+</html>

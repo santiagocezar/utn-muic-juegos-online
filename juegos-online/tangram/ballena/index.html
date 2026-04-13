@@ -1,77 +1,61 @@
 ﻿<!DOCTYPE html>
-
 <html lang="es">
-
-
-<head>
-	
-	<title>Tangram</title>
-	<link href="../../../img/ConCiencia-sinletras.png" rel="shortcut icon">
-	<meta charset="utf-8">
-	<meta name="ConCiencia">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="../css/main.css">
-
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
-</head>
-
-
-<body>
-
-<h1>Tangram</h1>
-<h2> Reglas </h2>
-    
-<p> Hay que armar las figuras que están en las fichas con las 7 piezas disponibles. </p>   
-<p> Arrastra las piezas para moverlas. </p>
-
-<div class="contenido" style="position: relative;">
-<div id="bloqueador" class="bloquer"> </div>
-<svg id="tangram" style="display: none;" version="1.1" viewBox="0 0 8.096 4.4392" xml:space="preserve"
-	xmlns="http://www.w3.org/2000/svg">
-	<g transform="translate(-254.74 -104.99)" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
-		stroke-width=".025">
-		<path d="m257.59 109.41-2.8284-2.8284h2.8284z" fill="#f60" style="paint-order:normal" />
-		<path d="m257.59 106.59 2.8284 2.8284h-2.8284z" fill="#f60" style="paint-order:normal" />
-		<path d="m261.41 108.41-0.99998-0.99998 0.99998-1z" fill="#008000" style="paint-order:normal" />
-		<path d="m260.41 107.41-0.99995 0.99997-1-0.99997z" fill="#008000" style="paint-order:normal" />
-		<path d="m262.83 105-2.8284 2e-5 1.4142 1.4142z" fill="#f00" style="paint-order:normal" />
-		<path d="m254.76 108 1.4142-3e-5 1.4142 1.4142-1.4142 3e-5z" fill="#000080" style="paint-order:normal" />
-		<path d="m260.41 109.41-0.99998-0.99998 0.99998-0.99998 0.99998 0.99998z" fill="#8d5fd3"
-			style="paint-order:normal" />
-	</g>
-</svg>
-
-<div id="base">
-	<div id="monitor"></div>
-	<div id="etiqueta" class="figure"><img src="../../img/Etiqueta.png"> </div>
-	</div>
-</div>
-
-<div id="espacio-boton">
-<a class="boton-personalizado" href="../index.html">Volver a Jugar</a> </div>
-
-<h2> ¿Sabías qué? </h2>
-
-<p align="justify"> El Tangram es un juego chino muy antiguo llamado “Chi Chiao Pan” que significa “juego de los siete elementos” o “tabla de la sabiduría”. Existen varias versiones sobre el origen de la palabra Tangram, una de ellas cuenta que la inventó un inglés uniendo el vocablo cantonés “tang” que significa chino con el vocablo latino “gram” que significa escrito o gráfico. Otra versión narra que el origen del juego se remonta a los años 618 a 907, época en la que reinó en China la dinastía Tang, de donde derivaría su nombre.
-Las primeras publicaciones chinas en las que aparece el juego datan del siglo XVIII, época para la cual el juego era ya muy conocido en varios países del mundo.
-</p>
-
-<!-- Contador de visitas -->
-<div align="right">
-<a href="http://www.websmultimedia.com/contador-de-visitas-gratis" 
-
-title="Contador De Visitas">
-<img style="border: 0px solid; display: inline;" alt="contador de visitas" 
-
-src="http://www.websmultimedia.com/contador-de-visitas.php?id=302227"></a>
-</div>
-<!-- Fin Contador de visitas -->
-
-<script type="module" src="../js/main.js"></script>
-
-<script type='text/javascript'>
-	document.oncontextmenu = function(){return false}
-</script>
-</body>
+	<head>
+		<title>Tangram</title>
+		<link href="../../../img/ConCiencia-sinletras.png" rel="shortcut icon">
+		<meta charset="utf-8">
+		<meta name="ConCiencia">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../../css/botonVolver.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
+		<script defer type="module" src="../js/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<a class="volver" href="../index.html">
+			    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/></svg>
+            </a>
+			<h1>Tangram</h1>
+		</header>
+		<h2>Reglas</h2>
+		<p> Hay que armar las figuras que están en las fichas con las 7 piezas disponibles. </p>   
+		<p> Arrastra las piezas para moverlas. </p>
+		<div class="contenido" style="position: relative;">
+			<div id="bloqueador" class="bloquer"> </div>
+			<svg id="tangram" style="display: none;" version="1.1" viewBox="0 0 8.096 4.4392" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+				<g transform="translate(-254.74 -104.99)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".025">
+					<path d="m257.59 109.41-2.8284-2.8284h2.8284z" fill="#f60" style="paint-order:normal"/>
+					<path d="m257.59 106.59 2.8284 2.8284h-2.8284z" fill="#f60" style="paint-order:normal"/>
+					<path d="m261.41 108.41-0.99998-0.99998 0.99998-1z" fill="#008000" style="paint-order:normal"/>
+					<path d="m260.41 107.41-0.99995 0.99997-1-0.99997z" fill="#008000" style="paint-order:normal"/>
+					<path d="m262.83 105-2.8284 2e-5 1.4142 1.4142z" fill="#f00" style="paint-order:normal"/>
+					<path d="m254.76 108 1.4142-3e-5 1.4142 1.4142-1.4142 3e-5z" fill="#000080" style="paint-order:normal"/>
+					<path d="m260.41 109.41-0.99998-0.99998 0.99998-0.99998 0.99998 0.99998z" fill="#8d5fd3" style="paint-order:normal" />
+				</g>
+			</svg>
+			<div id="base">
+				<div id="monitor"></div>
+				<div id="etiqueta" class="figure"><img src="../../img/Etiqueta.png"> </div>
+			</div>
+		</div>
+		<h2> ¿Sabías qué? </h2>
+		<p align="justify"> El Tangram es un juego chino muy antiguo llamado “Chi Chiao Pan” que significa “juego de los siete elementos” o “tabla de la sabiduría”. Existen varias versiones sobre el origen de la palabra Tangram, una de ellas cuenta que la inventó un inglés uniendo el vocablo cantonés “tang” que significa chino con el vocablo latino “gram” que significa escrito o gráfico. Otra versión narra que el origen del juego se remonta a los años 618 a 907, época en la que reinó en China la dinastía Tang, de donde derivaría su nombre.
+			Las primeras publicaciones chinas en las que aparece el juego datan del siglo XVIII, época para la cual el juego era ya muy conocido en varios países del mundo.
+		</p>
+		<!-- Contador de visitas -->
+		<div align="right">
+			<a href="http://www.websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas">
+				<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=302227">
+			</a>
+		</div>
+		<!-- Fin Contador de visitas -->
+		<script type='text/javascript'>
+			document.oncontextmenu = function(){
+				return false
+			}
+		</script>
+	</body>
+</html>
